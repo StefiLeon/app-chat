@@ -1,9 +1,9 @@
 //IMPORTS
 import express from 'express';
 import cors from 'cors';
-import { engine } from 'express-handlebars';
 import productosRouter from './routes/productos.js';
 import upload from './services/uploader.js';
+import { engine } from 'express-handlebars';
 import Contenedor from './classes/ClassContenedor.js';
 let contenedor = new Contenedor();
 
