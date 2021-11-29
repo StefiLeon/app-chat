@@ -68,7 +68,7 @@ export default class Contenedor {
                 return {status: "success", lista: productos}
             }
         } catch(err) {
-            return {status:"error", message:"No se puede leer el archivo"}
+            return {status:"error", message:`No se puede leer el archivo ${err}`}
         }
     }
 

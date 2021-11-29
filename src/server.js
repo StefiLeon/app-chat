@@ -34,23 +34,6 @@ app.get('/', (req, res) => {
     res.send(`<h1 style="color:green;font-family:Georgia, serif">Bienvenidos al servidor express de Stefi</h1>`);
 })
 
-// app.post('/api/uploadfile', upload.fields([
-//     {
-//         name: 'file', maxCount: 1
-//     },
-//     {
-//         name: "documents", maxCount:3
-//     }
-// ]), (req, res) => {
-//         const files = req.files;
-//         console.log(files);
-//         if(!files||files.length===0){
-//             res.status(500).send({messsage:"No se subió archivo"})
-//         }
-//         res.send(files);
-//     }
-// )
-
 app.get('/views/productos', (req, res) => {
     contenedor.getAll().then(result => {
         let info = result.lista;
