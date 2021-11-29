@@ -1,0 +1,28 @@
+
+
+//- <div>
+//-     {{#each productos}}
+//-     <div>
+//-         <p>{{this.title}}</p>
+//-         <p>{{this.price}}</p>
+//-         <img src={{this.thumbnail}}>
+//-     </div>
+//-     {{/each}}
+//- </div>
+//- <br>
+//- <div>
+//-     <button><a href="http://localhost:8080">Agregar producto</a></button>
+//- </div>
+
+html
+    head 
+        title="Lista de productos"
+    body
+        h1="Lista de productos"
+        ul
+            each producto in productos
+                li
+                    div
+                        p=producto.title
+                        p=producto.price
+                        img(src=producto.thumbnail)

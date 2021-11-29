@@ -1,7 +1,6 @@
 //IMPORTS
 import express from 'express';
 import cors from 'cors';
-import { engine } from 'express-handlebars';
 import productosRouter from './routes/productos.js';
 import upload from './services/uploader.js';
 import Contenedor from './classes/ClassContenedor.js';
@@ -26,9 +25,8 @@ app.use(upload.single('thumbnail'));
 app.use('/api/productos', productosRouter);
 
 //ENGINE
-app.engine('handlebars', engine());
 app.set('views', './views');
-app.set('view engine', 'handlebars');
+app.set('view engine', 'pug');
 
 app.get('/', (req, res) => {
     res.send(`<h1 style="color:green;font-family:Georgia, serif">Bienvenidos al servidor express de Stefi</h1>`);
