@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>WEB CON SOCKETS</h1>
+    <label for="user">User</label>
+    <input id = "user">
+    <br>
+    <label for="message">Texto</label>
+    <input id = "message">
+    <button id="info">Enviar</button>
+    <div id="log"></div>
+    <script src="/socket.io/socket.io.js"></script> <!--Ojo con el orden, el socket tiene que estar arriba y el index abajo-->
+    <script src="./index.js"></script>
+</body>
+</html>
