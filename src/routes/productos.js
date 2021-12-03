@@ -1,6 +1,6 @@
 import express, { Router } from 'express';
 import Contenedor from '../classes/ClassContenedor.js';
-import upload from '../services/uploader.js';
+import { io } from '../server.js';
 const contenedor = new Contenedor();
 const router = Router();
 
@@ -30,6 +30,11 @@ router.post('/', (req, res) => {
     producto.thumbnail = `${req.protocol}://${req.hostname}:8080/images/${file.filename}`;
     contenedor.save(producto).then(result => {
         res.send(result);
+        if(result.status==="success") {
+            contenedor.getAll().then(result => {
+                io.emit('updateProducts', result);
+            })
+        }
     })
 })
 

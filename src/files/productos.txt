@@ -46,5 +46,23 @@
     "title": "Prueba desde otro socket",
     "price": "6980",
     "thumbnail": "http://localhost:8080/images/1638505529645igport.jpg"
+  },
+  {
+    "id": 9,
+    "title": "Prueba 3",
+    "price": "451",
+    "thumbnail": "http://localhost:8080/images/1638506422314port2911.jpg"
+  },
+  {
+    "id": 10,
+    "title": "Prueba 3",
+    "price": "451",
+    "thumbnail": "http://localhost:8080/images/1638506572816port2911.jpg"
+  },
+  {
+    "id": 11,
+    "title": "Prueba 4",
+    "price": "123",
+    "thumbnail": "http://localhost:8080/images/1638506605854mandar-5.jpg"
   }
 ]

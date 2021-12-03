@@ -27,9 +27,10 @@ function sendForm(e) {
         body:data
     }).then(result => {
         return result.json();
-    }).then(result => {
-        location.href='/' //redireccion al form
     })
+    // .then(result => {
+    //     location.href='/' //redireccion al form
+    // })
 }
 
 document.getElementById("thumbnail").onchange = (e) => {
