@@ -15,8 +15,8 @@ socket.on('updateProducts', data => {
     })
 })
 
-let messages = document.getElementById('sendMessage');
-messages.addEventListener('click', (e) => {
+let enviar = document.getElementById('sendMessage');
+enviar.addEventListener('click', (e) => {
     socket.emit('message', {email:email.value, message:message.value})
     console.log(`Llego todo ${email.value} ${message.value}`);
 })
@@ -28,10 +28,11 @@ socket.on('messageCenter', data => {
     }
     let p = document.createElement('p');
     let chat = data.map(message => {
-        return `<div><span>${message.email} dice: "${message.message}"</span></div>`
+        return `<div>${message.email} dice: "${message.message}"</div>`
     }). join(' ');
     p.innerHTML = chat;
     div.appendChild(p);
+    console.log(chat);
 })
 
 //Form

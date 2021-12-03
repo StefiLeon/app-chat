@@ -40,6 +40,7 @@ io.on('connection', async socket => {
     socket.emit('updateProducts', productos);
 })
 
+
 //RUTAS
 app.get('/', (req, res) => {
     res.send(`<h1 style="color:green;font-family:Georgia, serif">Bienvenidos al servidor express de Stefi</h1>`);
