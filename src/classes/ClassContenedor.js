@@ -64,7 +64,6 @@ export default class Contenedor {
             let data = await fs.promises.readFile('./files/productos.txt', 'utf-8');
             let productos = JSON.parse(data);
             if(productos) {
-                console.log(productos);
                 return {status: "success", lista: productos}
             }
         } catch(err) {

@@ -32,10 +32,12 @@ app.set('views', './views');
 app.set('view engine', 'handlebars');
 
 //WEBSOCKET
-const io = new Server(server);
+export const io = new Server(server);
 
-io.on('connection', socket => {
-    console.log('Cliente nuevo conectado');
+io.on('connection', async socket => {
+    console.log(`El socket ${socket.id} se ha conectado.`);
+    let productos = await contenedor.getAll();
+    socket.emit('updateProducts', productos);
 })
 
 //RUTAS

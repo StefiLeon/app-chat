@@ -1,0 +1,20 @@
+{{#if productos}}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Producto</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Miniatura</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each productos}}
+            <tr>
+                <td>{{this.title}}</td>
+                <td>{{this.price}}</td>
+                <td><img style="height:70px;object-fit:contain" src={{this.thumbnail}}></td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
+{{/if}}

@@ -17,7 +17,7 @@
     "price": "800",
     "thumbnail": "http://localhost:8080/images/Taza_Bonsegundo.jpg"
   },
-    {
+  {
     "id": 4,
     "title": "Taza Cometti",
     "price": "800",
@@ -34,5 +34,17 @@
     "title": "Taza Ippolito",
     "price": "800",
     "thumbnail": "http://localhost:8080/images/Taza_Ippolito.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Taza prueba",
+    "price": "350",
+    "thumbnail": "http://localhost:8080/images/1638505485284fabi1.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Prueba desde otro socket",
+    "price": "6980",
+    "thumbnail": "http://localhost:8080/images/1638505529645igport.jpg"
   }
 ]
