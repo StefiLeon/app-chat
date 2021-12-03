@@ -4,6 +4,7 @@ import cors from 'cors';
 import productosRouter from './routes/productos.js';
 import upload from './services/uploader.js';
 import { engine } from 'express-handlebars';
+import { Server } from 'socket.io';
 import Contenedor from './classes/ClassContenedor.js';
 let contenedor = new Contenedor();
 
@@ -30,6 +31,14 @@ app.engine('handlebars', engine());
 app.set('views', './views');
 app.set('view engine', 'handlebars');
 
+//WEBSOCKET
+const io = new Server(server);
+
+io.on('connection', socket => {
+    console.log('Cliente nuevo conectado');
+})
+
+//RUTAS
 app.get('/', (req, res) => {
     res.send(`<h1 style="color:green;font-family:Georgia, serif">Bienvenidos al servidor express de Stefi</h1>`);
 })

@@ -1,20 +1,38 @@
 [
   {
     "id": 1,
-    "title": "prueba 80 mil",
-    "price": "600",
-    "thumbnail": "http://localhost:8080/images/1637816826735Cali-2021-Balonmano-Argentina-vs-Colombia-_ARR9468.jpg"
+    "title": "Taza Banini",
+    "price": "800",
+    "thumbnail": "http://localhost:8080/images/Taza_Banini.jpg"
   },
   {
     "id": 2,
-    "title": "kjkl",
-    "price": "312",
-    "thumbnail": "http://localhost:8080/images/1637861683066dg.JPG"
+    "title": "Taza Barroso",
+    "price": "800",
+    "thumbnail": "http://localhost:8080/images/Taza_Barroso.jpg"
   },
   {
     "id": 3,
-    "title": "Stefi",
-    "price": "500",
-    "thumbnail": "http://localhost:8080/images/1638145112728mandar-6.jpg"
+    "title": "Taza Bonsegundo",
+    "price": "800",
+    "thumbnail": "http://localhost:8080/images/Taza_Bonsegundo.jpg"
+  },
+    {
+    "id": 4,
+    "title": "Taza Cometti",
+    "price": "800",
+    "thumbnail": "http://localhost:8080/images/Taza_Cometti.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Taza Correa",
+    "price": "800",
+    "thumbnail": "http://localhost:8080/images/Taza_Correa.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Taza Ippolito",
+    "price": "800",
+    "thumbnail": "http://localhost:8080/images/Taza_Ippolito.jpg"
   }
 ]

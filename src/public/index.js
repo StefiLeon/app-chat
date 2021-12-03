@@ -1,3 +1,6 @@
+const socket = io();
+
+//Form
 document.addEventListener('submit', sendForm);
 
 function sendForm(e) {    
@@ -21,3 +24,8 @@ document.getElementById("thumbnail").onchange = (e) => {
     }
     read.readAsDataURL(e.target.files[0]);
 }
+
+//Socket
+socket.on('welcome', data => {
+    console.log(data);
+})

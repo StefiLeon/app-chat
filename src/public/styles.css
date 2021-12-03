@@ -1,0 +1,9 @@
+h1, h2, h3, h4, p, a, label, button {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: darkslategrey;
+}
+
+a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: white;
+}

@@ -1,14 +1,15 @@
-<div>
+<div class="container pt-4">
     {{#each productos}}
-    <div>
-        <p>{{this.title}}</p>
-        <p>{{this.price}}</p>
-        <img src={{this.thumbnail}}>
+    <div class="card" style="width: 18rem;">
+        <img src={{this.thumbnail}} class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-text">{{this.title}}</p>
+            <p class="card-text">{{this.price}}</p>
+        </div>
     </div>
     {{/each}}
-</div>
-<div>
-    <button>
-        <a href="http://localhost:8080">Agregar productos</a>
+    <br>
+    <button type="button" class="btn btn-dark">
+        <a class="btn-dark" href="http://localhost:8080">Agregar productos</a>
     </button>
 </div>
