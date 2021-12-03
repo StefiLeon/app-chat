@@ -15,6 +15,25 @@ socket.on('updateProducts', data => {
     })
 })
 
+let messages = document.getElementById('sendMessage');
+messages.addEventListener('click', (e) => {
+    socket.emit('message', {email:email.value, message:message.value})
+    console.log(`Llego todo ${email.value} ${message.value}`);
+})
+
+socket.on('messageCenter', data => {
+    let div = document.getElementById('messageCenter');
+    if(div.firstChild) {
+        div.removeChild(div.firstChild)
+    }
+    let p = document.createElement('p');
+    let chat = data.map(message => {
+        return `<div><span>${message.email} dice: "${message.message}"</span></div>`
+    }). join(' ');
+    p.innerHTML = chat;
+    div.appendChild(p);
+})
+
 //Form
 document.addEventListener('submit', sendForm);
 fetch('./templates/productsTable.handlebars');

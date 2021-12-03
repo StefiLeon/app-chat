@@ -58,7 +58,7 @@
             </div>
         </form>
     </div>
-    <div class="container">
+    <div class="container pb-4">
         <button type="button" class="btn btn-dark">
             <a href="http://localhost:8080/views/productos">Ver lista de productos</a>
         </button>
@@ -69,6 +69,19 @@
         <h2>Productos en tiempo real</h2>
         <div id="productsTable"></div>
     </div>
+    <br>
+    <!--Chat-->
+    <div class="container">
+        <h3>Centro de mensajes</h3>
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="Ingrese su mail" required>
+        <br>
+        <label for="message">Mensaje</label>
+        <input id="message" placeholder="Escriba su mensaje" type="text" required>
+        <br>
+        <button id="sendMessage" type="button" class="btn btn-dark">Enviar mensaje</button>
+    </div>
+    <div class="container" id="messageCenter"></div>
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="index.js"></script>
