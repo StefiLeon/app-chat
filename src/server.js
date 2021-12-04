@@ -40,6 +40,14 @@ io.on('connection', async socket => {
     socket.emit('updateProducts', productos);
 })
 
+let messages = [];
+io.on('connection', socket => {
+    io.emit('messagelog', messages);
+    socket.on('messageCenter', data => {
+        messages.push(data)
+        io.emit('messagelog', messages)
+    })
+})
 
 //RUTAS
 app.get('/', (req, res) => {

@@ -16,23 +16,21 @@ socket.on('updateProducts', data => {
 })
 
 let enviar = document.getElementById('sendMessage');
+let email = document.getElementById('email');
+let mensaje = document.getElementById('message')
 enviar.addEventListener('click', (e) => {
-    socket.emit('message', {email:email.value, message:message.value})
-    console.log(`Llego todo ${email.value} ${message.value}`);
+    socket.emit('messageCenter', {email:email.value, message:mensaje.value})
 })
 
-socket.on('messageCenter', data => {
-    let div = document.getElementById('messageCenter');
-    if(div.firstChild) {
-        div.removeChild(div.firstChild)
-    }
-    let p = document.createElement('p');
+const time = new Date;
+socket.on('messagelog', data => {
+    let div = document.getElementById('messageCenter')
+    let p = document.getElementById('log');
     let chat = data.map(message => {
-        return `<div>${message.email} dice: "${message.message}"</div>`
-    }). join(' ');
+        return `<div><span style="color:blue"><b>${message.email}</b></span> <span style="color:brown"> ${time.toDateString()} ${time.toTimeString()}</span> "<span style="color:green"><i>${message.message}</i></span>"</div>`
+    }).join('')
     p.innerHTML = chat;
     div.appendChild(p);
-    console.log(chat);
 })
 
 //Form
@@ -48,9 +46,6 @@ function sendForm(e) {
     }).then(result => {
         return result.json();
     })
-    // .then(result => {
-    //     location.href='/' //redireccion al form
-    // })
 }
 
 document.getElementById("thumbnail").onchange = (e) => {
