@@ -64,6 +64,16 @@
         "price": "300",
         "stock": "1",
         "thumbnail": "http://localhost:8080/images/1639018314617Taza_Banini.jpg"
+      },
+      {
+        "id": 3,
+        "timestamp": "Added at Wed Dec 08 2021 23:55:16 GMT-0300 (Argentina Standard Time)",
+        "nombre": "Taza Menéndez",
+        "descripcion": "Taza de ceramica",
+        "codigo": "789",
+        "price": "460",
+        "stock": "3",
+        "thumbnail": "http://localhost:8080/images/1639018516201Taza_Menendez.jpg"
       }
     ]
   }

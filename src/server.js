@@ -7,6 +7,7 @@ import upload from './services/uploader.js';
 import { engine } from 'express-handlebars';
 import { Server } from 'socket.io';
 import { authMiddleware } from './services/auth.js';
+import __dirname from './utils.js';
 import Contenedor from './classes/ClassContenedor.js';
 let contenedor = new Contenedor();
 
@@ -25,7 +26,7 @@ const admin = true;
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 app.use(cors());
-app.use(express.static('public'));
+app.use(express.static(__dirname+'/public'));
 app.use(upload.single('thumbnail'));
 app.use((req, res, next) => {
     console.log(new Date().toTimeString().split(" ")[0], req.method, req.url);
@@ -39,7 +40,7 @@ app.use('/api/carrito', carritoRouter);
 
 //ENGINE
 app.engine('handlebars', engine());
-app.set('views', './views');
+app.set('views', __dirname+'/views');
 app.set('view engine', 'handlebars');
 
 //WEBSOCKET

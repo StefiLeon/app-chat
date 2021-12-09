@@ -27,7 +27,7 @@ function sendForm(e) {
     }).then(result => {
         return result.json();
     }).then(
-        document.getElementById("prodForm").reset()
+        location.href='/'
     )
 }
 
