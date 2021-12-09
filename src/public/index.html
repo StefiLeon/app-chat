@@ -39,12 +39,24 @@
         <h1>Nuevo producto</h1>
         <form action="/api/productos" method="POST" id="prodForm" name="prodForm">
             <div class="form-group">
-                <label for="title">Nombre</label>
-                <input name="title" id="title" placeholder="Nombre" required>
+                <label for="nombre">Nombre</label>
+                <input name="nombre" id="nombre" placeholder="Nombre" required>
+                <br>
+                <br>
+                <label for="descripcion">Descripción breve</label>
+                <input name="descripcion" id="descripcion" placeholder="Descripción" required>
+                <br>
+                <br>
+                <label type="number" for="codigo">Código</label>
+                <input name="codigo" id="codigo" placeholder="Código" required>
                 <br>
                 <br>
                 <label type="number" for="price">Precio</label>
                 <input name="price" id="price" placeholder="Precio" required>
+                <br>
+                <br>
+                <label type="number" for="stock">Stock</label>
+                <input name="stock" id="stock" placeholder="Stock" required>
                 <br>
                 <br>
                 <label for="thumbnail">Imagen</label>
@@ -70,20 +82,6 @@
         <div id="productsTable"></div>
     </div>
     <br>
-    <!--Chat-->
-    <div class="container">
-        <h3>Centro de mensajes</h3>
-        <label for="email">Email</label>
-        <input id="email" type="email" placeholder="Ingrese su mail" required>
-        <br>
-        <label for="message">Mensaje</label>
-        <input id="message" placeholder="Escriba su mensaje" type="text" required>
-        <br>
-        <button id="sendMessage"    class="btn btn-dark">Enviar mensaje</button>
-    </div>
-    <div id="messageCenter">
-        <p id="log"></p>
-    </div>
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="index.js"></script>

@@ -1,15 +1,18 @@
-import express, { Router } from 'express';
+import { Router } from 'express';
 import Contenedor from '../classes/ClassContenedor.js';
 import { io } from '../server.js';
+import { authMiddleware } from '../services/auth.js';
 const contenedor = new Contenedor();
 const router = Router();
 
 //GETS
+//Obtener todos los productos
 router.get('/', async (req, res) => {
     let productos = await contenedor.getAll();
     res.send(productos);
 })
 
+//Obtener producto por id
 router.get('/:pid', (req, res) => {
     let id = parseInt(req.params.pid);
     contenedor.getByID(id).then(result => {
@@ -17,13 +20,9 @@ router.get('/:pid', (req, res) => {
     })
 })
 
-router.get('/random', async (req, res) => {
-    let producto = await contenedor.getRandom();
-    res.send(producto);
-})
-
 //POSTS
-router.post('/', (req, res) => {
+//Agregar producto
+router.post('/', authMiddleware, (req, res) => {
     let file = req.file;
     let producto = req.body;
     console.log(producto);
@@ -39,7 +38,8 @@ router.post('/', (req, res) => {
 })
 
 //PUTS
-router.put('/:pid', (req, res) => {
+//Actualizar producto por id
+router.put('/:pid', authMiddleware, (req, res) => {
     let body = req.body;
     let id = parseInt(req.params.pid);
     contenedor.updateById(id,body).then(result => {
@@ -48,7 +48,8 @@ router.put('/:pid', (req, res) => {
 })
 
 //DELETES
-router.delete('/pid', (req, res) => {
+//Borrar producto por id
+router.delete('/:pid', authMiddleware, (req, res) => {
     let id = parseInt(req.params.pid);
     contenedor.deleteById(id).then(result => {
         res.send(result)

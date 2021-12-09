@@ -3,15 +3,19 @@
     <thead>
         <tr>
             <th scope="col">Producto</th>
+            <th scope="col">Descripción</th>
             <th scope="col">Precio</th>
+            <th scope="col">Stock</th>
             <th scope="col">Miniatura</th>
         </tr>
     </thead>
     <tbody>
         {{#each productos}}
             <tr>
-                <td>{{this.title}}</td>
+                <td>{{this.nombre}}</td>
+                <td>{{this.descripcion}}</td>
                 <td>{{this.price}}</td>
+                <td>{{this.stock}}</td>
                 <td><img style="height:70px;object-fit:contain" src={{this.thumbnail}}></td>
             </tr>
         {{/each}}

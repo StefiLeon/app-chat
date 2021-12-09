@@ -1,68 +1,62 @@
 [
   {
-    "id": 1,
-    "title": "Taza Banini",
-    "price": "800",
-    "thumbnail": "http://localhost:8080/images/Taza_Banini.jpg"
-  },
-  {
     "id": 2,
-    "title": "Taza Barroso",
-    "price": "800",
-    "thumbnail": "http://localhost:8080/images/Taza_Barroso.jpg"
+    "timestamp": "Added at Wed Dec 08 2021 23:51:54 GMT-0300 (Argentina Standard Time)",
+    "nombre": "Taza Banini",
+    "descripcion": "Taza de ceramica",
+    "codigo": "546",
+    "price": "300",
+    "stock": "1",
+    "thumbnail": "http://localhost:8080/images/1639018314617Taza_Banini.jpg"
   },
   {
     "id": 3,
-    "title": "Taza Bonsegundo",
-    "price": "800",
-    "thumbnail": "http://localhost:8080/images/Taza_Bonsegundo.jpg"
+    "timestamp": "Added at Wed Dec 08 2021 23:55:16 GMT-0300 (Argentina Standard Time)",
+    "nombre": "Taza Menéndez",
+    "descripcion": "Taza de ceramica",
+    "codigo": "789",
+    "price": "460",
+    "stock": "3",
+    "thumbnail": "http://localhost:8080/images/1639018516201Taza_Menendez.jpg"
   },
   {
     "id": 4,
-    "title": "Taza Cometti",
-    "price": "800",
-    "thumbnail": "http://localhost:8080/images/Taza_Cometti.jpg"
+    "timestamp": "Added at Thu Dec 09 2021 00:01:37 GMT-0300 (Argentina Standard Time)",
+    "nombre": "Taza Barroso",
+    "descripcion": "Taza de ceramica",
+    "codigo": "165",
+    "price": "540",
+    "stock": "2",
+    "thumbnail": "http://localhost:8080/images/1639018897676Taza_Barroso.jpg"
   },
   {
     "id": 5,
-    "title": "Taza Correa",
-    "price": "800",
-    "thumbnail": "http://localhost:8080/images/Taza_Correa.jpg"
+    "timestamp": "Added at Thu Dec 09 2021 00:05:28 GMT-0300 (Argentina Standard Time)",
+    "nombre": "Taza Cometti",
+    "descripcion": "Taza de ceramica",
+    "codigo": "758",
+    "price": "457",
+    "stock": "6",
+    "thumbnail": "http://localhost:8080/images/1639019128703Taza_Cometti.jpg"
   },
   {
     "id": 6,
-    "title": "Taza Ippolito",
-    "price": "800",
-    "thumbnail": "http://localhost:8080/images/Taza_Ippolito.jpg"
+    "timestamp": "Added at Thu Dec 09 2021 00:08:15 GMT-0300 (Argentina Standard Time)",
+    "nombre": "Taza Benitez",
+    "descripcion": "Taza de ceramica",
+    "codigo": "798",
+    "price": "560",
+    "stock": "4",
+    "thumbnail": "http://localhost:8080/images/1639019295945Lore1.jpg"
   },
   {
     "id": 7,
-    "title": "Taza prueba",
-    "price": "350",
-    "thumbnail": "http://localhost:8080/images/1638505485284fabi1.jpg"
-  },
-  {
-    "id": 8,
-    "title": "Prueba desde otro socket",
-    "price": "6980",
-    "thumbnail": "http://localhost:8080/images/1638505529645igport.jpg"
-  },
-  {
-    "id": 9,
-    "title": "Prueba 3",
-    "price": "451",
-    "thumbnail": "http://localhost:8080/images/1638506422314port2911.jpg"
-  },
-  {
-    "id": 10,
-    "title": "Prueba 3",
-    "price": "451",
-    "thumbnail": "http://localhost:8080/images/1638506572816port2911.jpg"
-  },
-  {
-    "id": 11,
-    "title": "Prueba 4",
-    "price": "123",
-    "thumbnail": "http://localhost:8080/images/1638506605854mandar-5.jpg"
+    "timestamp": "Added at Thu Dec 09 2021 00:09:19 GMT-0300 (Argentina Standard Time)",
+    "nombre": "Taza Correa",
+    "descripcion": "Taza de ceramica",
+    "codigo": "986",
+    "price": "780",
+    "stock": "8",
+    "thumbnail": "http://localhost:8080/images/1639019359785Taza_Correa.jpg"
   }
 ]

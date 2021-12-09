@@ -2,22 +2,25 @@ import fs from 'fs';
 
 export default class Contenedor {
     
+    //Guardar producto
     async save(producto) {
+        let fyh = Date(Date.now());
+        let timestamp = fyh.toString();
         try {
             let data = await fs.promises.readFile('./files/productos.txt', "utf-8")
             let productos = JSON.parse(data);
             let id = productos[productos.length-1].id+1;
-            producto = Object.assign({id:id}, producto);
+            producto = Object.assign({id:id}, {timestamp:`Added at ${timestamp}`}, producto);
             productos.push(producto);
             console.log(producto.id);
             try {
                 await fs.promises.writeFile('./files/productos.txt', JSON.stringify(productos, null, 2));
                 return {status:"success",message:"Producto registrado"}
             } catch(err) {
-                return {status:"Error", message: "No se creo el producto."}
+                return {status:"Error", message: `No se creo el producto, ${err}`}
             }
         } catch {
-            producto = Object.assign({id:1}, producto);
+            producto = Object.assign({id:1}, {timestamp:`Added at ${timestamp}`}, producto);
             try {
                 await fs.promises.writeFile('./files/productos.txt', JSON.stringify([dataProductos], null, 2))
                 return {status: "success", message: "Producto creado con exito."}
@@ -28,6 +31,7 @@ export default class Contenedor {
         }
     }
 
+    //Obtener producto segun id
     async getByID(id) {
         try {
             let data = await fs.promises.readFile('./files/productos.txt', 'utf-8');
@@ -46,19 +50,7 @@ export default class Contenedor {
         }
     }
 
-    async getRandom() {
-        try {
-            let data = await fs.promises.readFile('./files/productos.txt', 'utf-8');
-            let productos = JSON.parse(data);
-            let random = Math.floor(Math.random() * productos.length+1);
-            let producto = productos.find(i => i.id === random)
-            return {status: "success", producto: producto, message: "Producto random"}
-        } catch(err) {
-            console.log("No se puede leer el archivo");
-            return {status: "error", message:"No hay producto random"}
-        }
-    }
-
+    //Obtener todos los productos
     async getAll() {
         try {
             let data = await fs.promises.readFile('./files/productos.txt', 'utf-8');
@@ -71,18 +63,20 @@ export default class Contenedor {
         }
     }
 
+    //Borrar producto por id
     async deleteById(id) {
         try {
             let data = await fs.promises.readFile('./files/productos.txt', 'utf-8');
             let productos = JSON.parse(data);
             let newArray = productos.filter(i => i.id !== id)
             await fs.promises.writeFile('./files/productos.txt', JSON.stringify(newArray, null, 2));
+            return {status: "success", message:"Producto eliminado."}
         } catch(err) {
-            console.log("No anda");
             return {status: "error", message: "No se puede leer el archivo para borrar el producto"}
         }
     }
 
+    //Borrar todos los productos
     async deleteAll() {
         try {
             let data = await fs.promises.readFile('./files/productos.txt', 'utf-8');
@@ -94,6 +88,7 @@ export default class Contenedor {
         }
     }
 
+    //Actualizar producto por id
     async updateById(id,body) {
         try {
             let data = await fs.promises.readFile('./files/productos.txt', 'utf-8');

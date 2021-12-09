@@ -2,9 +2,11 @@
 import express from 'express';
 import cors from 'cors';
 import productosRouter from './routes/productos.js';
+import carritoRouter from './routes/carrito.js';
 import upload from './services/uploader.js';
 import { engine } from 'express-handlebars';
 import { Server } from 'socket.io';
+import { authMiddleware } from './services/auth.js';
 import Contenedor from './classes/ClassContenedor.js';
 let contenedor = new Contenedor();
 
@@ -16,15 +18,24 @@ const server = app.listen(PORT, () => {
 })
 server.on('error', (error) => console.log(`Error en el servidor: ${error}`));
 
+//ADMIN
+const admin = true;
+
 //MIDDLEWARES
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 app.use(cors());
 app.use(express.static('public'));
 app.use(upload.single('thumbnail'));
+app.use((req, res, next) => {
+    console.log(new Date().toTimeString().split(" ")[0], req.method, req.url);
+    req.auth = admin;
+    next();
+})
 
 //ROUTER
 app.use('/api/productos', productosRouter);
+app.use('/api/carrito', carritoRouter);
 
 //ENGINE
 app.engine('handlebars', engine());
@@ -38,15 +49,6 @@ io.on('connection', async socket => {
     console.log(`El socket ${socket.id} se ha conectado.`);
     let productos = await contenedor.getAll();
     socket.emit('updateProducts', productos);
-})
-
-let messages = [];
-io.on('connection', socket => {
-    io.emit('messagelog', messages);
-    socket.on('messageCenter', data => {
-        messages.push(data)
-        io.emit('messagelog', messages)
-    })
 })
 
 //RUTAS
