@@ -32,6 +32,7 @@ router.post('/', authMiddleware, (req, res) => {
         if(result.status==="success") {
             contenedor.getAll().then(result => {
                 io.emit('updateProducts', result);
+                console.log(producto.id)
             })
         }
     })
@@ -42,18 +43,26 @@ router.post('/', authMiddleware, (req, res) => {
 router.put('/:pid', authMiddleware, (req, res) => {
     let body = req.body;
     let id = parseInt(req.params.pid);
-    contenedor.updateById(id,body).then(result => {
+    if(authMiddleware) {
+        contenedor.updateById(id,body).then(result => {
         res.send(result);
-    })
+        })
+    } else {
+        res.send({error:-1, descripcion:"ruta /:pid del metodo delete no autorizada"})
+    }
 })
 
 //DELETES
 //Borrar producto por id
 router.delete('/:pid', authMiddleware, (req, res) => {
     let id = parseInt(req.params.pid);
+    if (authMiddleware) {
     contenedor.deleteById(id).then(result => {
         res.send(result)
-    })
+        }
+    )} else {
+        res.send({error:-1, message:"ruta /:pid del metodo delete no autorizada"})
+    }
 })
 
 

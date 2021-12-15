@@ -18,7 +18,7 @@ export default class Contenedor {
             console.log(producto.id);
             try {
                 await fs.promises.writeFile(productURL, JSON.stringify(productos, null, 2));
-                return {status:"success",message:"Producto registrado"}
+                return {status:"success", message:`Producto registrado con ID ${producto.id}`}
             } catch(err) {
                 return {status:"Error", message: `No se creo el producto, ${err}`}
             }

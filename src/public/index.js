@@ -26,7 +26,8 @@ function sendForm(e) {
         body:data
     }).then(result => {
         return result.json();
-    }).then(
+    })
+    .then(
         location.href='/'
     )
 }

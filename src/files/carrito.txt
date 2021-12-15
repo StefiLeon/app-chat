@@ -76,5 +76,28 @@
         "thumbnail": "http://localhost:8080/images/1639018516201Taza_Menendez.jpg"
       }
     ]
+  },
+  {
+    "id": 4,
+    "timestamp": "Added at Wed Dec 15 2021 00:03:40 GMT-0300 (Argentina Standard Time)",
+    "productos": [
+      {
+        "id": 5,
+        "timestamp": "Added at Thu Dec 09 2021 00:05:28 GMT-0300 (Argentina Standard Time)",
+        "nombre": "Taza Cometti",
+        "descripcion": "Taza de ceramica",
+        "codigo": "758",
+        "price": "457",
+        "stock": "6",
+        "thumbnail": "http://localhost:8080/images/1639019128703Taza_Cometti.jpg"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "timestamp": "Added at Wed Dec 15 2021 00:10:23 GMT-0300 (Argentina Standard Time)",
+    "productos": [
+      {}
+    ]
   }
 ]
