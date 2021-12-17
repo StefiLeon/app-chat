@@ -49,4 +49,20 @@ export default class Productos {
             return {status:"Error", message: err}
         }
     }
+    deleteById = async(id) => {
+        try {
+            let result = await database.table('ecommerce').del().where('id', id);
+            return {status:"Success", message: result}
+        } catch(err) {
+            return {status:"Error", message: err}
+        }
+    }
+    updateById = async(id, body) => {
+        try {
+            let result = await database.table('ecommerce').where('id', id).update(body);
+            return {status: "Success", message: result}
+        } catch(err) {
+            return {status:"Error", message: err}
+        }
+    }
 }

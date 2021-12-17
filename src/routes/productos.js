@@ -47,7 +47,7 @@ router.put('/:pid', authMiddleware, (req, res) => {
     let body = req.body;
     let id = parseInt(req.params.pid);
     if(authMiddleware) {
-        contenedor.updateById(id,body).then(result => {
+        productosServices.updateById(id,body).then(result => {
         res.send(result);
         })
     } else {
@@ -60,7 +60,7 @@ router.put('/:pid', authMiddleware, (req, res) => {
 router.delete('/:pid', authMiddleware, (req, res) => {
     let id = parseInt(req.params.pid);
     if (authMiddleware) {
-    contenedor.deleteById(id).then(result => {
+    productosServices.deleteById(id).then(result => {
         res.send(result)
         }
     )} else {
