@@ -2,20 +2,23 @@ import { Router } from 'express';
 import Contenedor from '../classes/ClassContenedor.js';
 import { io } from '../server.js';
 import { authMiddleware } from '../services/auth.js';
+import Productos from '../services/Contenedor.js';
 const contenedor = new Contenedor();
 const router = Router();
+const productosServices = new Productos();
 
 //GETS
 //Obtener todos los productos
 router.get('/', async (req, res) => {
-    let productos = await contenedor.getAll();
-    res.send(productos);
+    productosServices.getProducts().then(result => {
+        res.send(result);
+    })
 })
 
 //Obtener producto por id
 router.get('/:pid', (req, res) => {
     let id = parseInt(req.params.pid);
-    contenedor.getByID(id).then(result => {
+    productosServices.getProductByID(id).then(result => {
         res.send(result);
     })
 })
@@ -27,10 +30,10 @@ router.post('/', authMiddleware, (req, res) => {
     let producto = req.body;
     console.log(producto);
     producto.thumbnail = `${req.protocol}://${req.hostname}:8080/images/${file.filename}`;
-    contenedor.save(producto).then(result => {
+    productosServices.saveProduct(producto).then(result => {
         res.send(result);
         if(result.status==="success") {
-            contenedor.getAll().then(result => {
+            productosServices.getProducts().then(result => {
                 io.emit('updateProducts', result);
                 console.log(producto.id)
             })
