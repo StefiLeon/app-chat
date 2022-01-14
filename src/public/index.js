@@ -39,3 +39,25 @@ document.getElementById("thumbnail").onchange = (e) => {
     }
     read.readAsDataURL(e.target.files[0]);
 }
+
+let input = document.getElementById('info');
+input.addEventListener('click', (e) => {
+    socket.emit('newMessage', {email:email.value, content:content.value});
+})
+
+socket.on('welcome', data => {
+    console.log(data);
+})
+
+socket.on('log', data => { //ver lo que escribo en el input en tiempo real
+    let div = document.getElementById('log');
+    if(div.firstChild) {
+        div.removeChild(div.firstChild)
+    }
+    let p = document.createElement('p');
+    let mensajes = data.lista.map (message => {
+        return `<div><span>${message.email} dice: "${message.content}"</span></div>`
+    }). join(' ');
+    p.innerHTML = mensajes;
+    div.appendChild(p);
+})

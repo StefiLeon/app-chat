@@ -9,7 +9,10 @@ import { Server } from 'socket.io';
 import { authMiddleware } from './services/auth.js';
 import __dirname from './utils.js';
 import Contenedor from './classes/ClassContenedor.js';
+import { generate } from './utils.js';
+import ChatMongo from './database/messages.js';
 let contenedor = new Contenedor();
+let messages = new ChatMongo();
 
 //EXPRESS
 const app = express();
@@ -52,6 +55,18 @@ io.on('connection', async socket => {
     socket.emit('updateProducts', productos);
 })
 
+io.on('connection', async socket => {
+    console.log('Cliente nuevo conectado');
+    let mensajes = await messages.getAllChats();
+    socket.emit('log', mensajes);
+    socket.on('newMessage', data => {
+        let newMessage = data;
+        messages.addChat(newMessage);
+        mensajes.lista.push(data)
+        io.emit('log', mensajes);
+    })
+})
+
 //RUTAS
 app.get('/', (req, res) => {
     res.send(`<h1 style="color:green;font-family:Georgia, serif">Bienvenidos al servidor express de Stefi</h1>`);
@@ -65,4 +80,14 @@ app.get('/views/productos', (req, res) => {
         }
         res.render('productos', prepObj)
     })
+})
+
+//Productos test con Faker
+app.get('/api/productos-test', (req, res) => {
+    let quantity = req.query.quantity ? parseInt(req.query.quantity) : 5;
+    let products = generate(quantity);
+    let prepObj = {
+        productos: products
+    }
+    res.render('productostest', prepObj);
 })
